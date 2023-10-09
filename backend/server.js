@@ -2,7 +2,7 @@
 const express = require("express");
 const mongoose = require('mongoose');
 const cors = require("cors")
-
+const bodyParser =require("body-parser");
 mongoose.set('strictQuery', false);
 require("dotenv").config();
 const {getMedicines} = require("./controllers/pharmacistController");
@@ -21,7 +21,9 @@ app.use(
         }
     )
 )
-
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.json())
 mongoose.connect(MongoURI)
 .then(()=>{
   console.log("MongoDB is now connected!")
