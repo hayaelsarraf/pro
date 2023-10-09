@@ -5,8 +5,7 @@ const createAdmin = async(req,res) => {
     
     const {name, password} = req.body
     console.log(req.body)
-    console.log('saknnaid')
-
+    console.log('heloooo')
     const newAmin = new AdminssModel({
     name: req.body.name,
     password:req.body.password, 
