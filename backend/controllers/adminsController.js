@@ -16,4 +16,5 @@ const createAdmin = async(req,res) => {
     .then (result => res.status(200).send(result))
  
 };
+
 module.exports={createAdmin}

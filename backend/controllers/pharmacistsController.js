@@ -22,5 +22,8 @@ const getPharmacists= async (req,res)=>{
             .then (result => res.status(200).send(result))
          
         };
-
-module.exports={getPharmacists,createPharmacist}
+        const removePharmacist=async(req,res)=>{
+            const deleted= await PharmacistsModel.findOneAndDelete({username:req.body.username})
+            res.status.send(deleted)
+        }
+module.exports={getPharmacists,createPharmacist,removePharmacist}

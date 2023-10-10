@@ -26,4 +26,8 @@ const getPatients= async (req,res)=>{
         .then (result => res.status(200).send(result))
      
     };  
-module.exports={getPatients,createPatients}
+    const removePatient=async(req,res)=>{
+        const deleted= await PatientsModel.findOneAndDelete({username:req.body.username})
+        res.status.send(deleted)
+    }
+module.exports={getPatients,createPatients,removePatient}
