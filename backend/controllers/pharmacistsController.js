@@ -23,7 +23,9 @@ const getPharmacists= async (req,res)=>{
          
         };
         const removePharmacist=async(req,res)=>{
-            const deleted= await PharmacistsModel.findOneAndDelete({username:req.body.username})
-            res.status.send(deleted)
+            PharmacistsModel.findOneAndDelete({username:req.body.username})
+            .then(exercise=>res.json('Exercise deleted'))
+            .catch(err=>res.status(400).json('Error'+err))
+          
         }
 module.exports={getPharmacists,createPharmacist,removePharmacist}

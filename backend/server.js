@@ -5,7 +5,7 @@ const cors = require("cors")
 const bodyParser =require("body-parser");
 mongoose.set('strictQuery', false);
 require("dotenv").config();
-const {getMedicines} = require("./controllers/pharmacistController");
+const {getMedicines,createMedicine,updateMedicine} = require("./controllers/pharmacistController");
 const {getpharm} = require("./controllers/pharmController");
 const {getPharmacists,createPharmacist,removePharmacist} = require("./controllers/pharmacistsController");
 const {getPatients,createPatients,removePatient} = require("./controllers/patientsController");
@@ -17,7 +17,7 @@ app.use(
     cors(
         {
             origin:"*",
-            methods:["POST","GET"],
+           // methods:["POST","GET"],
         }
     )
 )
@@ -39,9 +39,11 @@ app.get("/policies", getpharm);
 app.get("/pharmacists", getPharmacists);
 app.get("/patients", getPatients);
 app.post("/api/admins", createAdmin);
+app.put("/updateMedicine", updateMedicine);
 
 app.post("/addPharmacist", createPharmacist);
 app.post("/addPatient", createPatients);
+app.post("/addMedicine", createMedicine);
 
 
 app.delete("/remPharmacist", removePharmacist);

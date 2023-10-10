@@ -4,14 +4,13 @@ const AdminssModel= require('../Models/adminsSchema')
 const createAdmin = async(req,res) => {
     
     const {name, password} = req.body
-    console.log(req.body)
-    console.log('heloooo')
     const newAmin = new AdminssModel({
-    name: req.body.name,
-    password:req.body.password, 
+    name,
+    password 
     
     }) 
-
+    console.log(newAmin)
+    console.log('heloooo')
     await newAmin.save()
     .then (result => res.status(200).send(result))
  
