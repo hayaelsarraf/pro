@@ -68,7 +68,9 @@ export default function PatientRegistration(){
         <label  for="dob"> date of Birth:</label>
         <input 
          id="dob" 
-         name="dob"/> 
+         name="dob"
+         type="date"/> 
+      
          <br/>
         <label  for="mn"> Mobile Number:</label>
         <input  

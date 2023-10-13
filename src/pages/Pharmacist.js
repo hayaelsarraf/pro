@@ -7,6 +7,7 @@ export default function Pharmacist(){
     const [data,setData]= useState([]) //API DATA
     const [records,setRecords]= useState(null) //SEARCHED  
     const [tuples,setTuples]= useState(null) //FILTERED  
+    const [view,setView]= useState(false)  //FOR THE VIEW
 
 
 useEffect(()=>{
@@ -70,14 +71,19 @@ function edit(event){
     }
    )}
 function filter(event){
-   setTuples(data.filter(obj=>obj.medicalUse===(event.target.value)))
+  setTuples(data.filter(obj=>obj.medicalUse===(event.target.value)))
+  
+  setDescription(false) 
+  setQuatity(false)
 }
 
 function des(){
    setDescription((prev)=>!prev)
+   setQuatity(false)
 }
 function qua(){
    setQuatity((prev)=>  !prev)
+   setDescription(false) 
 }         
  
         return (
@@ -179,14 +185,13 @@ function qua(){
         tuples && tuples.map((obj)=> 
         (
         <p key={obj._id}> 
-        name:{obj.name}  <br></br>
-        quantity:{obj.quantity}  <br></br>
-        sales:{obj.sales} <br></br>
+         name:{obj.name}  <br></br>  
          price:{obj.price} <br></br>
          description: {obj.description} <br></br>
-         activeIngredients: {obj.activeIngredients}</p>
+         </p>
         ))
         }  
+         
           {
              description && 
              data.filter(obj=>obj.quantity>0)

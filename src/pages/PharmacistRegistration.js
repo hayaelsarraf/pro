@@ -56,7 +56,9 @@ export default function pharmacistRegistration(){
          <label  for="dob"> date of Birth:</label>
          <input 
             id="dateOfBirth"
-          name="dob"/> 
+          name="dob"
+          type="date"
+          /> 
           <br/>
          <label  for="hr"> hourly Rate:</label>
          <input 
